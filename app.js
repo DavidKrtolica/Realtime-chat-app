@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -73,7 +72,7 @@ app.delete('/messages', (req, res) => {
 
 // SERVING THE INDEX HTML PAGE
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 
