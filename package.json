@@ -1,11 +1,12 @@
 {
-  "name": "ExamProject",
+  "name": "Realtime-chat-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "cross-env PORT=8081 nodemon app.js"
+    "start-dev": "cross-env PORT=8081 nodemon app.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
