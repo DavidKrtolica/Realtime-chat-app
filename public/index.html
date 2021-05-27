@@ -58,20 +58,20 @@
 
     function getMessages() {
         // JQUERY AJAX GET REQUEST
-        $.get('http://localhost:8081/messages', (data) => {
+        $.get('https://realtime-chatsapp.herokuapp.com/messages', (data) => {
             data.forEach(addMessages);
         });
     };
 
     function sendMessage(message){
         // JQUERY AJAX POST REQUEST
-        $.post('http://localhost:8081/messages', message);
+        $.post('https://realtime-chatsapp.herokuapp.com/messages', message);
     };
 
     function deleteMessages() {
         // JQUERY AJAX DELETE REQUEST
         $.ajax({
-            url: 'http://localhost:8081/messages',
+            url: 'https://realtime-chatsapp.herokuapp.com/messages',
             type: 'DELETE',
             contentType:'application/json',  
             dataType: 'text',              
