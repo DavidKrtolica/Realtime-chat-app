@@ -34,7 +34,7 @@ const Message = mongoose.model('Message', {
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
     if (error) {
         console.log(error);
-    }
+    };
     console.log('Connection to MongoDB established...');
 });
 
@@ -42,7 +42,7 @@ mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (er
 // USING GET TO READ ALL OF THE MESSAGES FROM THE DB - API
 app.get('/messages', (req, res) => {
     Message.find({ }, (err, messages) => {
-      res.send(messages);
+      res.send({ messages });
     });
 });
 
@@ -80,6 +80,6 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, (error) => {
     if (error) {
         console.log(error);
-    }
-    console.log('Server running on port:', server.address().port)
+    };
+    console.log('Server running on port:', server.address().port);
 });
