@@ -45,14 +45,6 @@ app.get('/messages', (req, res) => {
       res.send(messages);
     });
 });
-
-// AGAIN GET METHOD, CHECKING FOR SPECIFIC USER MESSAGES - API
-app.get('/messages/:user', (req, res) => {
-    const user = req.params.user
-    Message.find({ name: user }, (err, messages) => {
-      res.send(messages);
-    });
-});
   
 // POSTING/SAVING THE MESSAGES TO THE DB - API 
 app.post('/messages', (req, res) => {
