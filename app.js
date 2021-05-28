@@ -42,7 +42,7 @@ mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (er
 // USING GET TO READ ALL OF THE MESSAGES FROM THE DB - API
 app.get('/messages', (req, res) => {
     Message.find({ }, (err, messages) => {
-      res.send({ messages });
+      res.send(messages);
     });
 });
 
@@ -50,7 +50,7 @@ app.get('/messages', (req, res) => {
 app.get('/messages/:user', (req, res) => {
     const user = req.params.user
     Message.find({ name: user }, (err, messages) => {
-      res.send({ messages  });
+      res.send(messages);
     });
 });
   
