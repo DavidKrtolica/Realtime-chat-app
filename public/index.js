@@ -1,9 +1,13 @@
     const socket = io();
     $(() => {
         $("#send").click(()=>{
+            if ($("#name").val() != "" && $("#message").val() != "") {
             sendMessage({name: $("#name").val(), message: $("#message").val()});
             // CLEARING THE MESSAGE INPUT FIELD
             $('#message').val('');
+            } else {
+                alert("You haven't written a name and a message!!");
+            };
         });
         
         $("#delete").click(()=>{
