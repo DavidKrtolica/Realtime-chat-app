@@ -1,12 +1,15 @@
     const socket = io();
     $(() => {
         $("#send").click(()=>{
-            if ($("#name").val() != "" && $("#message").val() != "") {
-            sendMessage({name: $("#name").val(), message: $("#message").val()});
+            if ($("#name").val() === "") {
+                alert("You haven't written a name!!");
+            //sendMessage({name: $("#name").val(), message: $("#message").val()});
             // CLEARING THE MESSAGE INPUT FIELD
-            $('#message').val('');
-            } else {
-                alert("You haven't written a name and a message!!");
+            //$('#message').val('');
+            } else if ($("#message").val() === "") {
+                alert("You haven't written a message!!");
+            } else if ($("#name").val() === "" && $("#message").val() === "") {
+                alert("You haven't written a message and a name!!");
             };
         });
         
@@ -20,6 +23,7 @@
         getMessages();
     });
 
+    // HANDLES THE POSTING OF A MESSAGE - READS THE DB AGAIN AND ADDS THE NEWLY ADDED MESSAGE
     socket.on('message', addMessages);
 
     // GETTING THE "messages" DIV AND SETTING IT TO "" - EMPTY STRING

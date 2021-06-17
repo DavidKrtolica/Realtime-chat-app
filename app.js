@@ -28,10 +28,11 @@ const mongoose = require('mongoose');
 // DATABASE NAME - 'test'; COLLECTION - 'messages'
 const dbUrl = 'mongodb+srv://davidK:mongoDBdavid3nter1ng66532@cluster0.k8xoe.mongodb.net/test';   
 // LOCALHOST: 'mongodb://localhost:27017/chatdb' --> LOCALHOST TESTING DB
-const Message = mongoose.model('Message', {
+/* const Message = mongoose.model('Message', {
     name: String,
     message: String
-});
+}); */
+const Message = require('./models/Message').Message;
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
     if (error) {
