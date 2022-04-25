@@ -26,7 +26,7 @@ io.on('connection', (socket) =>{
 // SETTING UP THE DATABASE CONNECTION AND MONGOOSE
 const mongoose = require('mongoose');
 // DATABASE NAME - 'test'; COLLECTION - 'messages'
-const dbUrl = 'mongodb+srv://davidK:mongoDBdavid3nter1ng66532@cluster0.k8xoe.mongodb.net/test';   
+const dbUrl = 'mongodb+srv://davidK:mongoDBdavid3nter1ng66532@cluster0.k8xoe.mongodb.net/test?retryWrites=true&w=majority';   
 // LOCALHOST: 'mongodb://localhost:27017/chatdb' --> LOCALHOST TESTING DB
 /* const Message = mongoose.model('Message', {
     name: String,
@@ -34,7 +34,7 @@ const dbUrl = 'mongodb+srv://davidK:mongoDBdavid3nter1ng66532@cluster0.k8xoe.mon
 }); */
 const Message = require('./models/Message').Message;
 
-mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
+mongoose.connect(dbUrl, (error) => {
     if (error) {
         console.log(error);
     };
